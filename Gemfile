@@ -23,6 +23,7 @@ source 'https://rubygems.org'
 
 group :assets do
 	gem "therubyracer"
+	gem "twitter-bootstrap-rails"
 	gem "less-rails"
 	gem 'coffee-rails', '~> 3.2.1'
   	gem 'uglifier', '>= 1.0.3'

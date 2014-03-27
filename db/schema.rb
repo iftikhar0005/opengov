@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140327220917) do
+ActiveRecord::Schema.define(:version => 20140327233253) do
+
+  create_table "officials", :force => true do |t|
+    t.string   "name"
+    t.string   "level"
+    t.integer  "state_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "officials", ["state_id"], :name => "index_officials_on_state_id"
+
+  create_table "reviews", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "official_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "reviews", ["official_id"], :name => "index_reviews_on_official_id"
+
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

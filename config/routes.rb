@@ -1,5 +1,14 @@
 Opengov::Application.routes.draw do
-  match '/home', to: 'page#homepage', via: 'get'
-  #root :to => 'index'
+  resources :reviews
+
+
+  resources :officials
+
+
+  resources :states
+
+
+  match '/home', to: 'layouts#home', via: 'get'
+  root :to => 'page#home'
   devise_for :users
 end
