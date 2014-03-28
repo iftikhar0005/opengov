@@ -47,9 +47,25 @@
           <a class="brand" href="#">Opengov</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Officals", "/path1"  %></li>
+              <li><%= link_to "States", "/path2"  %></li>
+              <li><%= link_to "Reviews", "/path3"  %></li>
+              <li>
+                 <% if user_signed_in? %>
+      Welcome, <%=current_user.email %>
+      <div class="btn-group">
+    <%= link_to glyph(:off), destroy_user_session_path, :class => 'btn btn-danger', :method => :delete %>
+  </ul>
+      </div>
+      <% else %>
+    <ul class = "after">  
+      <div class="btn-group">
+      <%= link_to "Sign up",  new_user_registration_path, :class => 'btn btn-success' %>
+          <%= link_to "Sign in", new_user_session_path, :class => 'btn btn' %>
+      <% end %>
+    </div>
+</ul>
+            </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -74,9 +90,6 @@
         </div>
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
 
     </div> <!-- /container -->
 
